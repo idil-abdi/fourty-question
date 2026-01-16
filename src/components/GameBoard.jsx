@@ -21,3 +21,4 @@ function GameBoard({ grid, onBoxClick, gameState }) {
 }
 
 export default GameBoard
+
