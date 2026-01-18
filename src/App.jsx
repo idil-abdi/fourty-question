@@ -5,8 +5,7 @@ import GameBoard from "./components/GameBoard";
 import QuestionModal from "./components/QuestionModal";
 import { questions } from './utils/questions';
 import { calculateScores, validateAnswer, isGameOver, getWinner } from './utils/gameLogic';
-// import './utils/test-questions'
-// import './utils/test-gameLogic'
+import EndGameScreen from "./components/EndGameScreen";
 
 function App() {
   const [gameState, setGameState] = useState('setup');
@@ -173,7 +172,6 @@ function App() {
     console.log('Game reset complete');
   };
 
-
   return (
     <div className="min-h-screen bg-linear-to-br from-indigo-900 via-purple-900 to-pink-900 p-4">
       <div className="max-w-6xl mx-auto">
@@ -218,6 +216,15 @@ function App() {
               🔄 Play Again
             </button>
           </div>
+        )}
+
+        {/* END GAME SCREEN - Show when game finished */}
+        {gameState === 'ended' && (
+          <EndGameScreen 
+            winner={getWinner(scores)}
+            scores={scores}
+            onReset={resetGame}
+          />
         )}
         
       </div>

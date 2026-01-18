@@ -28,6 +28,7 @@ function ScoreBoard({ scores, currentPlayer, message }) {
                     {scores.player2}
                 </div>
             </div>
+            
         </div>
         </div>
     )
